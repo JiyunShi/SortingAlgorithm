@@ -25,7 +25,7 @@ public class Person implements Comparable<Person>{
 	public int compareTo(Person o) {
 		// TODO Auto-generated method stub
 		
-		return name.compareTo(o.name);
+		return age - o.age;
 	} 
 
 }

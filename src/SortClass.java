@@ -74,7 +74,7 @@ public class SortClass {
 		doQuickSort(array, 0, array.size()-1);
 	}
 
-	public static <T extends Comparable<T>> void doQuickSort(ArrayList<T> array, int start, int end){
+	private static <T extends Comparable<T>> void doQuickSort(ArrayList<T> array, int start, int end){
 		if(start < end){
 			
 			
@@ -101,6 +101,45 @@ public class SortClass {
 	}
 	
 	
+	
+	//Merge Sort
+	public static <T extends Comparable<T>> void mergeSort(ArrayList<T> array){
+		ArrayList<T> helper = new ArrayList<T>(array);
+		doMergeSort(array, helper, 0, array.size()-1);
+	}
+	
+	private static <T extends Comparable<T>> void doMergeSort(ArrayList<T> array, ArrayList<T> helper, int start, int end){
+		
+		if(start<end){
+			
+			int middle = start + (end-start)/2;
+			
+			doMergeSort(array, helper, start, middle);
+			doMergeSort(array, helper, middle+1, end);
+			
+			for(int i= start; i<=end; i++) helper.set(i, array.get(i));			
+			int i= start, k= start, j= middle+1;
+			while(i<=middle&&j<=end){
+				if(helper.get(i).compareTo(helper.get(j))<=0) {
+					
+					array.set(k, helper.get(i));
+					i++;
+				}else{
+					array.set(k, helper.get(j));
+					j++;
+					
+				}
+				k++;
+			}			
+			while(i<=middle){
+				array.set(k, helper.get(i));
+				k++;
+				i++;
+			}
+
+		}
+		
+	}
 	
 	
 	

@@ -9,16 +9,16 @@ public class SortTest {
 		
 		ArrayList<Person> aList = new ArrayList<Person>();
 		Random r = new Random();
-		int n = r.nextInt(5) + 3; 
+		int n = 5; 
 		Person p ;
 		for (int i=0; i < n ; i++) {
-			p = new Person("Mr. " + (char)('A' + r.nextInt(20)) , r.nextInt(40));
+			p = new Person("Mr. " + (char)('A' + n) , r.nextInt(40));
 			aList.add(p);
 		}
 		
 		display(aList);
 		System.out.println("===============================");
-		SortClass.quickSort(aList);
+		SortClass.mergeSort(aList);
 		display(aList);
 
 	}
